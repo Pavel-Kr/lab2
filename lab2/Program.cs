@@ -14,6 +14,14 @@ namespace lab2
                 Console.WriteLine(RomanNumber.Sub(number, number2).ToString());
                 Console.WriteLine(RomanNumber.Mul(number, number2).ToString());
                 Console.WriteLine(RomanNumber.Div(number, number2).ToString());
+                Console.WriteLine("\n");
+                RomanNumber number3 = new RomanNumber(11);
+                RomanNumber[] numbers = { number, number2, number3 };
+                Array.Sort(numbers);
+                foreach(RomanNumber i in numbers)
+                {
+                    Console.WriteLine(i.ToString());
+                }
             }
             catch (RomanNumberException)
             {

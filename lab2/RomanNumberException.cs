@@ -8,7 +8,7 @@ namespace lab2
 {
     class RomanNumberException : Exception
     {
-        public RomanNumberException()
+        public RomanNumberException(string message) : base(message)
         {
         }
     }

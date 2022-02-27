@@ -23,9 +23,9 @@ namespace lab2
                     Console.WriteLine(i.ToString());
                 }
             }
-            catch (RomanNumberException)
+            catch (RomanNumberException ex)
             {
-                Console.WriteLine("RomanNumberException");
+                Console.WriteLine(ex.Message);
             }
         }
     }

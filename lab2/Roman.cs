@@ -13,22 +13,22 @@ namespace lab2
         //Конструктор получает представление числа n в римской записи
         public RomanNumber(ushort n)
         {
-            if (n <= 0) throw new RomanNumberException();
+            if (n <= 0) throw new RomanNumberException("Число должно быть больше 0");
             arabic = n;
             roman = ToString();
         }
         //Сложение римских чисел
         public static RomanNumber Add(RomanNumber? n1, RomanNumber? n2)
         {
-            if (n1 == null || n2 == null) throw new RomanNumberException();
+            if (n1 == null || n2 == null) throw new ArgumentNullException();
             RomanNumber n3 = new RomanNumber(Convert.ToUInt16(n1.arabic + n2.arabic));
             return n3;
         }
         //Вычитание римских чисел
         public static RomanNumber Sub(RomanNumber? n1, RomanNumber? n2)
         {
-            if (n1 == null || n2 == null) throw new RomanNumberException();
-            if (n1.arabic - n2.arabic <= 0) throw new RomanNumberException();
+            if (n1 == null || n2 == null) throw new ArgumentNullException();
+            if (n1.arabic - n2.arabic <= 0) throw new RomanNumberException("Разность меньше 0");
             ushort x = Convert.ToUInt16(n1.arabic - n2.arabic);
             RomanNumber n3 = new RomanNumber(x);
             return n3;
@@ -36,15 +36,15 @@ namespace lab2
         //Умножение римских чисел
         public static RomanNumber Mul(RomanNumber? n1, RomanNumber? n2)
         {
-            if (n1 == null || n2 == null) throw new RomanNumberException();
+            if (n1 == null || n2 == null) throw new ArgumentNullException();
             RomanNumber n3 = new RomanNumber(Convert.ToUInt16(n1.arabic * n2.arabic));
             return n3;
         }
         //Целочисленное деление римских чисел
         public static RomanNumber Div(RomanNumber? n1, RomanNumber? n2)
         {
-            if (n1 == null || n2 == null || n2.arabic == 0) throw new RomanNumberException();
-            if (n1.arabic - n2.arabic <= 0) throw new RomanNumberException();
+            if (n1 == null || n2 == null || n2.arabic == 0) throw new ArgumentNullException();
+            if (n1.arabic - n2.arabic <= 0) throw new RomanNumberException("Делитель должен быть меньше делимого");
             ushort x = Convert.ToUInt16(n1.arabic / n2.arabic);
             RomanNumber n3 = new RomanNumber(x);
             return n3;

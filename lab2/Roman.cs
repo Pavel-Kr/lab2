@@ -44,7 +44,7 @@ namespace lab2
         public static RomanNumber Div(RomanNumber? n1, RomanNumber? n2)
         {
             if (n1 == null || n2 == null || n2.arabic == 0) throw new ArgumentNullException();
-            if (n1.arabic - n2.arabic <= 0) throw new RomanNumberException("Делитель должен быть меньше делимого");
+            if (n1.arabic - n2.arabic < 0) throw new RomanNumberException("Делитель должен быть меньше делимого");
             ushort x = Convert.ToUInt16(n1.arabic / n2.arabic);
             RomanNumber n3 = new RomanNumber(x);
             return n3;
